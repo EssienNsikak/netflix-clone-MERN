@@ -9,7 +9,7 @@ export default function Watch() {
         Home
       </div>
       <video
-        className="video"
+        className='video'
         autoPlay
         progress
         controls
