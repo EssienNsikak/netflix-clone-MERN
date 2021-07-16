@@ -36,10 +36,7 @@ export default function Featured({ type }) {
           alt=''
         />
         <span className='desc'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          adipisci repellendus eum quasi illo, velit numquam, maxime tempora
-          sint deleniti, aliquid qui? Facilis, adipisci! Ratione hic repudiandae
-          temporibus eum earum?
+        The Matrix is an example of the cyberpunk subgenre of science fiction. The Wachowskis' approach to action scenes was influenced by Japanese animation and martial arts films, and the film's use of fight choreographers and wire fu techniques from Hong Kong action cinema influenced subsequent Hollywood action film productions.
         </span>
         <div className='buttons'>
           <button className='play'>
