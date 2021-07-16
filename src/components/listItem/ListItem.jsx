@@ -38,7 +38,7 @@ export default function ListItem({ index }) {
               <span>1999</span>
             </div>
             <div className='desc'>
-            The Matrix is an example of the cyberpunk subgenre of science fiction. The Wachowskis' approach to action scenes was influenced by Japanese animation and martial arts films, and the film's use of fight choreographers and...
+            The story follows Walt Kowalski, a recently widowed Korean War veteran alienated from his family and angry at the world...
             </div>
             <div className='genre'>Action</div>
           </div>
