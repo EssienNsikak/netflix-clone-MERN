@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './register.scss';
 
 export default function Register() {
