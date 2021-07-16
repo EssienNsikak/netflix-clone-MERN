@@ -1,9 +1,10 @@
 import './app.scss';
+import Home from './pages/home/Home';
 
 const App = () => {
   return (
     <div>
-      <h1>Hello World</h1>
+      <Home />
     </div>
   )
 };
