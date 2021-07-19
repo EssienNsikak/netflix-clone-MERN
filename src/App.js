@@ -11,27 +11,34 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
+  const user = true;
   return (
     <Router>
       <Switch>
         <Route exact path='/'>
-          <Home />
+          { user ? <Home /> : <Redirect to='/register' /> }
         </Route>
-        <Route path='/movies'>
-          <Home type='movie' />
+        <Route path='/register'>
+          { !user ? <Register /> : <Redirect to='/' /> }
         </Route>
-        <Route path='/series'>
-          <Home type='series' />
+        <Route path='/login'>
+          { !user ? <Login /> : <Redirect to='/' /> }
         </Route>
-        <Route>
-          <Watch />
-        </Route>
-        <Route>
-          <Register />
-        </Route>
-        <Route>
-          <Login />
-        </Route>
+        {
+          user && (
+            <>
+              <Route path='/movies'>
+                <Home type='movies' />
+              </Route>
+              <Route path='/series'>
+                <Home type='series' />
+              </Route>
+              <Route path='/watch'>
+                <Watch />
+              </Route>
+            </>
+          )
+        }
       </Switch>
     </Router>
   )
