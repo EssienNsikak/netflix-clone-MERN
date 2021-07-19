@@ -1,8 +1,28 @@
-
+import { useState, useEffect } from 'react';
+import Axios from 'axios';
 import { InfoOutlined, PlayArrow } from '@material-ui/icons';
 import './featured.scss';
 
 export default function Featured({ type }) {
+
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await Axios.get(`http://localhost:5004/api/movies/random?type=${type}`,{
+          headers: {
+            token: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjQ0NDI0YTUxZTRhNWExMmJlYTNmZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYyNjcxNTQ1MCwiZXhwIjoxNjI3MTQ3NDUwfQ.4uvl4tomVSh1RT97mK407wQI59FmxuXt2_H-dIY67xw'
+          }
+        });
+        setContent(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandomContent();
+  }, [type]);
+
   return (
     <div className='featured'>
       {type && (
@@ -27,16 +47,16 @@ export default function Featured({ type }) {
         </div>
       )}
       <img
-        src='https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
+        src={content.img}
         alt=''
       />
       <div className='info'>
         <img
-          src='https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1'
+          src={content.imgTitle}
           alt=''
         />
         <span className='desc'>
-        The Matrix is an example of the cyberpunk subgenre of science fiction. The Wachowskis' approach to action scenes was influenced by Japanese animation and martial arts films, and the film's use of fight choreographers and wire fu techniques from Hong Kong action cinema influenced subsequent Hollywood action film productions.
+        {content.desc}
         </span>
         <div className='buttons'>
           <button className='play'>
